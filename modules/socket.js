@@ -1,11 +1,13 @@
 var express = require('express');
 var router = express.Router();
 var server = require('../app').server;
-var io = require('socket.io')(server);
+// var io = require('socket.io')(server);
 
-router.get('/', function(req, res){
-  res.sendFile(__dirname + '/index.html');
-});
+
+module.exports = function(io) {
+// router.get('/', function(req, res){
+//   res.sendFile(__dirname + '/index.html');
+// });
 
 io.on('connection', function(socket){
   console.log('a user connected');
@@ -14,5 +16,5 @@ io.on('connection', function(socket){
     console.log('user disconnected');
   });
 });
-
-module.exports = router;
+console.log('hello');
+};
